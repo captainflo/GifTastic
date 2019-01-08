@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Homework 05</title>
+</head>
+
+<body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // Example queryURL for Giphy API
+    var animal = ["lion", "rabbit"];
+    
+    for(i=0;i<animal.length;i++){
+      var queryURL = "https://api.giphy.com/v1/gifs/"+ animal +"?api_key=dc6zaTOxFJmzC";
+      $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        console.log(PaymentResponse);
+      });
+    };
+  </script>
+
+</body>
+
+</html>
