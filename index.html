@@ -31,7 +31,7 @@
         var input = document.getElementById("userInput").value;
         $("img").remove();
         $(".listbuton").append("<button id="+input+" class='btn btn-success' onClick='getSubmitinput(this.id);' value="+input+">"+input+"</button>");
-        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + input + '&api_key=dc6zaTOxFJmzC'
+        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + input + '&api_key=dc6zaTOxFJmzC'
         $.ajax({
         url: queryURL,  
         method: "GET"
@@ -43,11 +43,11 @@
         });
         
     }
-    
+
     function getSubmitinput(event){
         var list = event;
         $("img").remove();
-        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + list + '&api_key=dc6zaTOxFJmzC'
+        var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + list + '&api_key=dc6zaTOxFJmzC'
         $.ajax({
         url: queryURL,  
         method: "GET"
