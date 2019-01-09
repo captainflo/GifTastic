@@ -3,27 +3,62 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Homework 05</title>
+  <title>Homework05</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/styles.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 
 <body>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    // Example queryURL for Giphy API
-    var animal = ["lion", "rabbit"];
+    <div class="container">
+        <h2 class="text-center">Animal  Picture</h2>
+        <div class="listbuton">
+            <h2>list of animal</h2>
+            <hr>
+        </div>
+        <form class="form-inline" role="form">
+            <div class="form-group">
+                <input type="text" class="form-control input-lg" id="userInput" placeholder="Add one">
+            </div>
+            <button type="button" onClick="getSubmitResponse();" class="btn btn-success">Submit</button>
+        </form>
+        <div id="list"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
     
-    for(i=0;i<animal.length;i++){
-      var queryURL = "https://api.giphy.com/v1/gifs/"+ animal +"?api_key=dc6zaTOxFJmzC";
-      $.ajax({
-        url: queryURL,
+    function getSubmitResponse(){
+        var input = document.getElementById("userInput").value;
+        $("img").remove();
+        $(".listbuton").append("<button id="+input+" class='btn btn-success' onClick='getSubmitinput(this.id);' value="+input+">"+input+"</button>");
+        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + input + '&api_key=dc6zaTOxFJmzC'
+        $.ajax({
+        url: queryURL,  
         method: "GET"
-      }).then(function(response) {
-        console.log(PaymentResponse);
-      });
-    };
+        }).then(function(response) {
+            console.log
+            for(i=0; i < response.data.length; i++){
+                $("#list").append( "<img src="+response.data[i].images.fixed_width_small.url+">");
+            }
+        });
+        
+    }
+    
+    function getSubmitinput(event){
+        var list = event;
+        $("img").remove();
+        var queryURL = 'http://api.giphy.com/v1/gifs/search?q=' + list + '&api_key=dc6zaTOxFJmzC'
+        $.ajax({
+        url: queryURL,  
+        method: "GET"
+        }).then(function(response) {
+            console.log
+            for(i=0; i < response.data.length; i++){
+                $("#list").append( "<img src="+response.data[i].images.fixed_width_small.url+">");
+            }
+        });
+    }
   </script>
-
 </body>
 
 </html>
