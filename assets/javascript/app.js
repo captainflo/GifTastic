@@ -1,5 +1,5 @@
    
-    var animals = ["rabbit","zebra", "panda"];
+    var animals = ["rabbit","zebra", "panda","crocodiles", "cat"];
     
     // Display info Animals on div List
     function infoAnimals(){
