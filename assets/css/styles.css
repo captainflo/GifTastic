@@ -32,3 +32,16 @@ button{
     background: linear-gradient(to right, #96c93d, #00b09b); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin: 10px;
 }
+
+img{
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    cursor: pointer;
+    display: inline-flex;
+}
+
+p{
+    width: 100px;
+    display: inline-flex;
+}
